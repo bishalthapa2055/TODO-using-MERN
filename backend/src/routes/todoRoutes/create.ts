@@ -7,16 +7,16 @@ const router = Router();
 
 router.post(
   "/",
-  [
-    body("title")
-      .isLength({ min: 4 })
-      .withMessage("Title must be greater than 4 characters"),
-    body("description")
-      .notEmpty()
-      .isLength({ min: 10 })
-      .withMessage("Descriptiion should be greater than 10 characters"),
-  ],
-  validateRequest,
+  // [
+  //   body("title")
+  //     .isLength({ min: 4 })
+  //     .withMessage("Title must be greater than 4 characters"),
+  //   body("description")
+  //     .notEmpty()
+  //     .isLength({ min: 10 })
+  //     .withMessage("Descriptiion should be greater than 10 characters"),
+  // ],
+  // validateRequest,
   createTodoHandler
 );
 

@@ -44,6 +44,7 @@ const getAllTodo = async (req: Request, res: Response, next: NextFunction) => {
     res.status(200).json({
       result: doc.length,
       total: documentCount,
+      status: true,
       data: doc,
     });
   } catch (error) {

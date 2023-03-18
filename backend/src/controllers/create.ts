@@ -5,8 +5,19 @@ import { Todo } from "../model/todo";
 const createTodo = async (req: Request, res: Response) => {
   try {
     let { title, description } = req.body;
-    if (!title && !description) {
-      throw new BadRequestError("Title and Description Fields are required");
+    if (!title) {
+      throw new BadRequestError("Title Field is required");
+    }
+    if (title.length < 4) {
+      throw new BadRequestError("Title must be greater than 4 character");
+    }
+    if (!description) {
+      throw new BadRequestError("Description field is required");
+    }
+    if (description.length < 10) {
+      throw new BadRequestError(
+        "Descritpion must be greater than 10 character"
+      );
     }
     const createTodos = await Todo.build({
       title,

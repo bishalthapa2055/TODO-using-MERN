@@ -20,11 +20,10 @@ const getCompletionRate = async (req: Request, res: Response) => {
         (completionRate[date] / completedTodos.length) *
         100
       ).toFixed(2);
-      console.log(date);
-
+      // console.log(date);
       completionRate[date] = rate + "%";
     });
-    res.json(completionRate);
+    res.status(200).json({ status: true, data: completionRate });
   } catch (e) {
     res.status(500).json({
       status: false,
