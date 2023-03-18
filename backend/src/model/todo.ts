@@ -43,6 +43,7 @@ const todoSchema = new mongoose.Schema<todoDoc>(
     },
     completedAt: {
       type: Date,
+      default: new Date(),
     },
   },
   {
@@ -57,6 +58,7 @@ const todoSchema = new mongoose.Schema<todoDoc>(
     timestamps: true,
   }
 );
+todoSchema.index({ title: "text" });
 
 todoSchema.statics.build = (attrs: todoAttrs) => {
   return new Todo(attrs);
