@@ -62,8 +62,8 @@ describe("Create Todo Methods", () => {
   });
   it("should return 400 if title is less than 4 character", async () => {
     const todoData = {
-      title: "tas",
-      description: "jhadhfadfjdaj",
+      title: "taskkkkk",
+      description: "jhad",
     };
     const res = await request(app).post("/api/v1/todo").send(todoData);
 

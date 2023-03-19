@@ -11,7 +11,7 @@ export const validateRequest = (
 
   if (!errors.isEmpty()) {
     // throw new RequestValidationError(errors.array());
-    return res.status(400).json({ errors: errors.array() });
+    return res.status(400).json({ status: false, errors: errors.array() });
   }
 
   next();
