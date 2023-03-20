@@ -12,7 +12,7 @@ const getCompletionRate = async (req: Request, res: Response) => {
 
       return acc;
     }, {});
-    console.log(completionRate);
+    // console.log(completionRate);
     const dates = Object.keys(completionRate);
 
     dates.forEach((date) => {
