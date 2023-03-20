@@ -19,6 +19,7 @@
     "@types/mongodb-memory-server": "^2.3.0",
     "@types/mongoose": "^5.11.97",
     "@types/supertest": "^2.0.12",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-validator": "^6.15.0",
@@ -28,6 +29,7 @@
     "supertest": "^6.3.3"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "ts-jest": "^29.0.5"
   }
 }

@@ -6,7 +6,7 @@ const getCompletionRate = async (req: Request, res: Response) => {
     const completedTodos = await Todo.find({ status: "completed" });
 
     const completionRate = completedTodos.reduce((acc: any, todo: any) => {
-      const date = todo.completedAt.toISOString().substr(0, 10);
+      const date = todo.createdAt.toISOString().substr(0, 10);
 
       acc[date] = acc[date] ? acc[date] + 1 : 1;
 
@@ -23,7 +23,11 @@ const getCompletionRate = async (req: Request, res: Response) => {
       // console.log(date);
       completionRate[date] = rate + "%";
     });
-    res.status(200).json({ status: true, data: completionRate });
+    res.status(200).json({
+      status: true,
+      total: completionRate?.length,
+      data: Object.entries(completionRate),
+    });
   } catch (e) {
     res.status(500).json({
       status: false,
