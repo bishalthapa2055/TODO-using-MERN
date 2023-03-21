@@ -112,7 +112,7 @@ const TodoTables = () => {
     });
   };
   const handleSuccess = () => {
-    console.log("clicked");
+    // console.log("clicked");
     adminServices.getCompleted(dispatch, {
       page,
       rowsPerPage,
@@ -125,7 +125,7 @@ const TodoTables = () => {
       <Stack
         spacing={2}
         direction="row"
-        sx={{ position: "absolute", top: "200px" }}
+        sx={{ position: "absolute", top: "210px" }}
       >
         <Button variant="contained" color="secondary" onClick={getAllTodos}>
           ALL TODO{" "}

@@ -9,7 +9,7 @@ export interface todoAttrs {
   title: string;
   description: string;
   status?: modelStatus;
-  completedAt?: Date;
+  // completedAt?: Date;
 }
 
 interface todoModel extends mongoose.Model<todoDoc> {
@@ -20,7 +20,7 @@ export interface todoDoc extends mongoose.Document, todoAttrs {
   title: string;
   description: string;
   status?: modelStatus.incomplete;
-  completedAt?: Date;
+  // completedAt?: Date;
   created_at?: Date;
   updated_at?: Date;
 }
@@ -42,9 +42,9 @@ const todoSchema = new mongoose.Schema<todoDoc>(
       default: modelStatus.incomplete,
     },
     completedAt: {
-      type: Date,
-      default: new Date(),
-    },
+    //   type: Date,
+    //   default: new Date(),
+    // },
   },
   {
     toJSON: {
