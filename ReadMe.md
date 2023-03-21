@@ -18,7 +18,7 @@ library and packages Used :
 "supertest"
 
 For Starting Frontend
-=> cd frontedn
+=> cd frontend
 => npm run dev
 
 library and packages used:
