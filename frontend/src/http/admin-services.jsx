@@ -7,15 +7,14 @@ import {
   getCompletionRates,
   updateTodos,
 } from "../store/reducers";
+import { api } from "./api";
 
 export const adminServices = {
   getAllTodo: async (dispatch, query) => {
     const { page, rowsPerPage } = query;
     // console.log(query);
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/v1/todo?page=${page}&limit=${rowsPerPage}`
-      );
+      const response = await api.get(`todo?page=${page}&limit=${rowsPerPage}`);
       if (response) {
         dispatch(getAllTodos(response.data));
         return Promise.resolve(response);
@@ -26,9 +25,7 @@ export const adminServices = {
   },
   getAllCompletionRate: async (dispatch) => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/v1/todo/day/rate"
-      );
+      const response = await api.get("todo/day/rate");
       if (response) {
         dispatch(getCompletionRates(response.data));
         return Promise.resolve(response);
@@ -40,8 +37,8 @@ export const adminServices = {
   deleteTodo: async (dispatch, id) => {
     // console.log(id);
     try {
-      const url = `http://localhost:5000/api/v1/todo/${id}`;
-      const response = await axios.delete(url);
+      const url = `/todo/${id}`;
+      const response = await api.delete(url);
       if (response) {
         // console.log(response);
         dispatch(deleteTodos(id));
@@ -53,8 +50,8 @@ export const adminServices = {
   },
   updateTodo: async (dispatch, id, values) => {
     try {
-      const url = `http://localhost:5000/api/v1/todo/${id}`;
-      const response = await axios.patch(url, values);
+      const url = `/todo/${id}`;
+      const response = await api.patch(url, values);
       console.log("res", response);
       if (response) {
         dispatch(updateTodos(response.data));
@@ -66,10 +63,7 @@ export const adminServices = {
   },
   createTodo: async (dispatch, values) => {
     try {
-      const response = await axios.post(
-        `http://localhost:5000/api/v1/todo`,
-        values
-      );
+      const response = await api.post(`/todo`, values);
 
       if (response) {
         dispatch(createTodos(response.data));

@@ -8,10 +8,12 @@ const Index = () => {
   return (
     <Container
       maxWidth="lg"
-      sx={{
-        backgroundColor: "yellow",
-        height: "100vh",
-      }}
+      sx={
+        {
+          // backgroundColor: "yellow",
+          // height: "100vh",
+        }
+      }
     >
       {/* <Header /> */}
       {/* <CreateSection /> */}

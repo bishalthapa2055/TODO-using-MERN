@@ -49,6 +49,7 @@ const DeleteTodoForm = ({ id, setModal, todo }) => {
           },
         });
       }
+      await adminServices.getAllCompletionRate(dispatch);
     } catch (err) {
       enqueueSnackbar("Failed to Delete Todo", {
         variant: "error",

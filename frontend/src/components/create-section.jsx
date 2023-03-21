@@ -16,7 +16,7 @@ const initialValues = {
 const StyledBox = styled(Box)({
   position: "relative",
   //   backgroundColor: "green",
-  border: "1px solid red",
+  border: "1px solid white",
   height: "80px",
   top: "50px",
 });
