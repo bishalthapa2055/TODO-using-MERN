@@ -13,6 +13,9 @@ const getCompletedTodo = async (
   // searching the users
   try {
     let documentCount = await Todo.estimatedDocumentCount();
+    const statusCount = await Todo.find({ status: "completed" });
+    console.log(statusCount.length);
+
     const searchTerm = req.query.searchTerm as string | undefined;
 
     // advance features within users
@@ -47,12 +50,9 @@ const getCompletedTodo = async (
 
     res.status(200).json({
       result: doc.length,
-      total: documentCount,
+      total: statusCount.length ? statusCount.length : 0,
       data: doc,
     });
-    // console.log("hit");
-    // const todoData = await Todo.find({ status: "completed" });
-    // res.status(200).json({ data: todoData });
   } catch (error) {
     res.status(400).json({ status: false, message: "Failed to get all Todos" });
   }

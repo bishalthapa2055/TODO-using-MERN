@@ -16,6 +16,7 @@ import {
   Tooltip,
   Select,
   MenuItem,
+  Button,
 } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Header from "./header";
@@ -104,10 +105,35 @@ const TodoTables = () => {
   const closeModel = () => {
     settodoStatusModel((prev) => !prev);
   };
+  const getAllTodos = () => {
+    adminServices.getAllTodo(dispatch, {
+      page,
+      rowsPerPage,
+    });
+  };
+  const handleSuccess = () => {
+    console.log("clicked");
+    adminServices.getCompleted(dispatch, {
+      page,
+      rowsPerPage,
+    });
+  };
   return (
     <>
       <Header />
       <CreateSection />
+      <Stack
+        spacing={2}
+        direction="row"
+        sx={{ position: "absolute", top: "200px" }}
+      >
+        <Button variant="contained" color="secondary" onClick={getAllTodos}>
+          ALL TODO{" "}
+        </Button>
+        <Button variant="contained" color="success" onClick={handleSuccess}>
+          COMPLETED
+        </Button>
+      </Stack>
       <Box>
         <StyledBox>
           <TableContainer component={Paper}>

@@ -10,7 +10,7 @@ const Index = () => {
       maxWidth="lg"
       sx={
         {
-          // backgroundColor: "yellow",
+          // backgroundColor: "black",
           // height: "100vh",
         }
       }

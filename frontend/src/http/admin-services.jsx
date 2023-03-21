@@ -6,6 +6,7 @@ import {
   getAllTodos,
   getCompletionRates,
   updateTodos,
+  getCompletedStatus,
 } from "../store/reducers";
 import { api } from "./api";
 
@@ -67,6 +68,20 @@ export const adminServices = {
 
       if (response) {
         dispatch(createTodos(response.data));
+        return Promise.resolve(response);
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
+  getCompleted: async (dispatch, query) => {
+    try {
+      const { page, rowsPerPage } = query;
+      const response = await api.get(
+        `/todo/status/completed?page=${page}&limit=${rowsPerPage}`
+      );
+      if (response) {
+        dispatch(getCompletedStatus(response.data));
         return Promise.resolve(response);
       }
     } catch (error) {

@@ -53,6 +53,14 @@ export const todoSlice = createSlice({
         todos: [action.payload.data, ...state.todos],
       };
     },
+    getCompletedStatus: (state, action) => {
+      return {
+        ...state,
+        todos: action.payload.data,
+        result: action.payload.result,
+        total: action.payload.total,
+      };
+    },
   },
 });
 
@@ -62,6 +70,7 @@ export const {
   getCompletionRates,
   deleteTodos,
   createTodos,
+  getCompletedStatus,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;
